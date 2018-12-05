@@ -1,8 +1,9 @@
 {
-  "name": "vue-x-alert",
+  "name": "@gblw/vue-x-ui",
   "description": "a simple UI for vue.js ",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "author": "wangmeng <501981732@qq.com>",
+  "main": "lib/index.js",
   "license": "MIT",
   "homepage": "https://github.com/501981732/vue-x-ui",
   "files": [

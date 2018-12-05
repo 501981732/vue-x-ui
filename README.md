@@ -5,7 +5,7 @@
 ### install
 
 ```
-npm install vue-x-ui
+npm install @gblw/vue-x-ui
 ```
 
 ### example
@@ -38,7 +38,7 @@ As component
     </div>
 </template>
 <script>
-    import {loading,alert} from 'vue-x-ui'
+    import {loading,alert} from '@gblw/vue-x-ui'
 export default {
     name: '',
     components: {
@@ -87,7 +87,7 @@ As Plugin
 </template>
 <script>
     import Vue form 'vue'
-    import {loadingPlugin,alertPligun} from 'vue-x-ui'
+    import {loadingPlugin,alertPligun} from '@gblw/vue-x-ui'
     Vue.use(loadingPlugin)
     Vue.use(alertPlugin)
     Vue.use(alertPlugin,{
@@ -134,6 +134,6 @@ As Plugin
 </script>
 
 ```
-<img src="https://raw.githubusercontent.com/501981732/vue-x-ui/master/screenshot/2.png" alt="">
-<img src="https://raw.githubusercontent.com/501981732/vue-x-ui/master/screenshot/1.png" alt="">
-<img src="https://raw.githubusercontent.com/501981732/vue-x-ui/master/screenshot/3.png" alt="">
+<img src="https://raw.githubusercontent.com/501981732/vue-x-ui/master/screenshot/2.png" width='400' height='300' alt="">
+<img src="https://raw.githubusercontent.com/501981732/vue-x-ui/master/screenshot/1.png" width='400' height='300' alt="">
+<img src="https://raw.githubusercontent.com/501981732/vue-x-ui/master/screenshot/3.png" width='400' height='300' alt="">

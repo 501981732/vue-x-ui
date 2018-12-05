@@ -2,6 +2,7 @@ build
 example
 src
 test
+screenshot
 assets
 index.html
 .*

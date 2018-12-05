@@ -1,0 +1,9 @@
+build
+example
+src
+test
+assets
+index.html
+.*
+*.config.js
+*.sh

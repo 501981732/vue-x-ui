@@ -1,9 +1,9 @@
 <template>
     <div id="demo">
-        <div @click='showLoading'>loading插件</div>
-        <div @click='showAlert'>alert插件</div>
-        <div @click='showToast'>toast插件</div>
-        <div @click='showConfirm'>confirm插件</div>
+        <div @click='showLoading'>loading插件</div><br>
+        <div @click='showAlert'>alert插件</div><br>
+        <div @click='showToast'>toast插件</div><br>
+        <div @click='showConfirm'>confirm插件</div><br>
         <!-- <loading :show='true' text='哈哈'></loading> -->
         <!-- <alert  title='你好' subtitle="恭喜您年会获奖" text="xr~" v-model="showSuccessAlert" ></alert> -->
     </div>
@@ -78,5 +78,11 @@ export default {
       linear-gradient(135deg, hsla(225, 95%, 50%, 1) 10%, hsla(225, 95%, 50%, 0) 80%),
       linear-gradient(225deg, hsla(140, 90%, 50%, 1) 10%, hsla(140, 90%, 50%, 0) 80%),
       linear-gradient(315deg, hsla(35, 95%, 55%, 1) 100%, hsla(35, 95%, 55%, 0) 70%);
+  }
+  #demo {
+    text-align: center;
+    >div {
+        display: inline-block;
+    }
   }
 </style>

@@ -134,6 +134,5 @@ As Plugin
 </script>
 
 ```
-<img src="https://raw.githubusercontent.com/501981732/vue-x-ui/master/screenshot/2.png" width='400' height='300' alt="">
-<img src="https://raw.githubusercontent.com/501981732/vue-x-ui/master/screenshot/1.png" width='400' height='300' alt="">
-<img src="https://raw.githubusercontent.com/501981732/vue-x-ui/master/screenshot/3.png" width='400' height='300' alt="">
+<img src="https://raw.githubusercontent.com/501981732/vue-x-ui/master/screenshot/2.png" width='300' height='500' alt="">
+

@@ -8,7 +8,7 @@
         <!-- <alert  title='你好' subtitle="恭喜您年会获奖" text="xr~" v-model="showSuccessAlert" ></alert> -->
         <input v-model="query">    <br>
         <staggered-group >
-            <div v-for="(item, index) in computedList" :key="item.msg" :data-index="index" data-height='50px' class="demo" >{{ item.msg }}</div>
+            <div v-for="(item, index) in computedList" :key="item.msg" :data-index="index" data-delay='50' data-height='50px' class="demo" >{{ item.msg }}</div>
         </staggered-group>
     </div>
 </template>

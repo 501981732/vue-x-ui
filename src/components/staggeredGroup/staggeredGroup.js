@@ -26,8 +26,9 @@ export default {
                     el.style.height = 0
                 },
                 enter: (el, done) => {
-                    let height = el.dataset.height
-                    let delay = el.dataset.index * 150
+                    const dataset = el.dataset
+                    const height = dataset.height
+                    const delay = dataset.index * dataset.delay
                     setTimeout(() => {
                         Velocity(
                             el, { opacity: 1, height }, { complete: done }
@@ -35,7 +36,8 @@ export default {
                     }, delay)
                 },
                 leave: function(el, done) {
-                    let delay = el.dataset.index * 150
+                    const dataset = el.dataset
+                    const delay = dataset.index * dataset.delay
                     setTimeout(function() {
                         Velocity(
                             el, { opacity: 0, height: 0 }, { complete: done }

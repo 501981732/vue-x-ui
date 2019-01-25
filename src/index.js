@@ -1,18 +1,29 @@
-import loading from './components/loading/loading.vue'
-import alert from './components/alert/alert.vue'
+import loading from './components/loading/Loading.vue'
+import alert from './components/alert/Alert.vue'
+import toast from './components/toast/Toast.vue'
 
 // 插件
 import AlertPlugin from './components/alert/index.js'
 import LoadingPlugin from './components/loading/index.js'
+import ToastPlugin from './components/toast/index.js'
+import ConfirmPlugin from './components/confirm/index.js'
+
+import './style/reset.css'
+import './style/common.css'
+import './style/animation.css'
 
 const components = [
     loading,
-    alert
+    alert,
+    toast,
+    confirm,
 ]
 
 const plugins = [
     AlertPlugin,
-    LoadingPlugin
+    LoadingPlugin,
+    ToastPlugin,
+    ConfirmPlugin,
 ]
 
 const install = function(Vue, opts={}) {
@@ -28,8 +39,12 @@ if (typeof window !== 'undefined' && window.Vue) {
 export {
     loading,
     alert,
+    toast,
+    confirm,
     AlertPlugin,
-    LoadingPlugin
+    LoadingPlugin,
+    ToastPlugin,
+    ConfirmPlugin,
 }
 
 // module.exports = {

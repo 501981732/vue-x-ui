@@ -1,20 +1,18 @@
 <template>
-    <transition name="fade">
-        <div class="alert-box" v-show="show">
-            <div class="alert-title">
-                {{ title }}
-                <!-- <slot name='title' ></slot> -->
-            </div>
-            <div class="alert-subtitle" v-if="subtitle">
-                {{ subtitle }}
-                <!-- <slot name='subtitle' ></slot> -->
-            </div>
-            <div class="alert-body" v-if="text">
-                {{ text }}
-                <!-- <slot name="body"></slot> -->
-            </div>
-            <slot></slot>
-            <div class="close icon" @click="close"></div>
+    <transition name="c-fade">
+        <div class="c-alert-component" v-show="show">
+            <transition name="c-zoom">
+                <div :class="['c-alert-box', boxClass]" v-show="show">
+                    <div class="c-alert-title">{{ title }}</div>
+                    <div class="c-alert-subtitle" v-if="subtitle">
+                        {{ subtitle }}
+                    </div>
+                    <div class="c-alert-body" v-if="body">{{ body }}</div>
+                    <slot></slot>
+                    <div class="close icon" @click="close"></div>
+                </div>
+            </transition>
+            <div class="c-mask"></div>
         </div>
     </transition>
 </template>
@@ -36,7 +34,11 @@ export default {
             type: String,
             default: ""
         },
-        text: {
+        body: {
+            type: String,
+            default: ""
+        },
+        boxClass: {
             type: String,
             default: ""
         }
@@ -64,9 +66,8 @@ export default {
     computed: {}
 };
 </script>
-
 <style lang="scss" scoped>
-.alert-box {
+.c-alert-box {
     text-align: center;
     background: #ffffff;
     padding: 25px 30px;
@@ -75,15 +76,16 @@ export default {
     top: 50%;
     transform: translate(-50%, -50%);
     border-radius: 8px;
-    z-index: 1000;
-    .alert-title {
-        font-size: 28px;
+    z-index: 1001;
+
+    .c-alert-title {
         color: #f1c967;
     }
-    .alert-subtitle {
-        font-size: 20px;
+
+    .c-alert-subtitle {
         color: #f1c967;
     }
+
     .close.icon {
         color: #000;
         position: absolute;
@@ -94,6 +96,7 @@ export default {
         top: 5px;
         right: 10px;
         cursor: pointer;
+
         &:before {
             content: "";
             position: absolute;
@@ -104,6 +107,7 @@ export default {
             background-color: currentColor;
             transform: rotate(-45deg);
         }
+
         &:after {
             content: "";
             position: absolute;

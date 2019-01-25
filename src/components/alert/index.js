@@ -1,5 +1,5 @@
 import Vue from "vue";
-import AlertComponent from "./alert.vue";
+import AlertComponent from "./Alert.vue";
 
 const plugin = {
     install(Vue, props = {}) {

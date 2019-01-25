@@ -1,5 +1,12 @@
-
-import LoadingComponent from './loading.vue' // 导入组件
+/**
+ *  @file loading 插件
+ * @example
+ * this.$x.loading.show('1')
+ * this.$x.loading.show()
+ * this.$x.loading.hide()
+ */
+import Vue from "vue";
+import LoadingComponent from "./Loading.vue";
 // const plagin = {
 //     install(Vue, options) {
 //         Vue.component(loading.name, loading) //  组件的name属性
@@ -10,31 +17,25 @@ import LoadingComponent from './loading.vue' // 导入组件
 // }
 // export default plagin // 导出..
 
-
-
-let $vm;
-
 export default {
     install(Vue, props) {
-        if (!$vm) {
-            const LoadingPlugin = Vue.extend(LoadingComponent);
+        const LoadingPlugin = Vue.extend(LoadingComponent);
 
-            $vm = new LoadingPlugin({
-                el: document.createElement('div')
-            });
+        let $vm = new LoadingPlugin({
+            el: document.createElement("div")
+        });
 
-            document.body.appendChild($vm.$el);
-        }
+        document.body.appendChild($vm.$el);
 
         // $vm.show = false;
         let loading = {
             show(text) {
-                $vm.show = true;
+                $vm.value = true;
 
                 text && ($vm.text = text);
             },
             hide() {
-                $vm.show = false;
+                $vm.value = false;
             }
         };
         // const loading = {
@@ -49,20 +50,18 @@ export default {
         if (!Vue.$x) {
             Vue.$x = {
                 loading
-            }
+            };
         } else {
-            Vue.$x.loading = loading
+            Vue.$x.loading = loading;
         }
         // if (!Vue.$loading) {
         //     Vue.$loading = loading;
         // }
         // Vue.prototype.$loading = Vue.$loading;
-
         Vue.mixin({
             created() {
-                this.$loading = Vue.$loading;
+                this.$x = Vue.$x;
             }
-        })
+        });
     }
-}
-
+};

@@ -1,6 +1,9 @@
 import loading from './components/loading/Loading.vue'
 import alert from './components/alert/Alert.vue'
 import toast from './components/toast/Toast.vue'
+import confirm from './components/confirm/Confirm.vue'
+import staggeredGroup from './components/staggeredGroup/staggeredGroup.js'
+
 
 // 插件
 import AlertPlugin from './components/alert/index.js'
@@ -17,6 +20,7 @@ const components = [
     alert,
     toast,
     confirm,
+    staggeredGroup
 ]
 
 const plugins = [
@@ -41,6 +45,7 @@ export {
     alert,
     toast,
     confirm,
+    staggeredGroup,
     AlertPlugin,
     LoadingPlugin,
     ToastPlugin,

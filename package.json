@@ -1,7 +1,7 @@
 {
   "name": "@gblw/vue-x-ui",
   "description": "a simple UI for vue.js ",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "author": "wangmeng <501981732@qq.com>",
   "main": "lib/index.js",
   "license": "MIT",
@@ -13,6 +13,8 @@
     "vue",
     "alert",
     "loading",
+    "confirm",
+    "toast",
     "UI"
   ],
   "scripts": {
@@ -21,6 +23,7 @@
     "prepublish": "babel src -d lib --copy-files"
   },
   "dependencies": {
+    "velocity-animate": "^1.5.2",
     "vue": "^2.5.11"
   },
   "browserslist": [

@@ -23,8 +23,6 @@ As component
 ```
 <template>
     <div id="demo">
-        <button @click='showLoading'>显示loading</button>
-        <button @click='showAlert'>显示alert</button>
         <loading
             :show='true'
             text='拼命加载中'>
@@ -79,60 +77,69 @@ As Plugin
 ```
 <template>
     <div id="demo">
-        <button @click='showLoading'>显示loading</button>
-        <button @click='showAlert'>显示alert</button>
-        <!-- <loading :show='true' text='哈哈'></loading> -->
-        <!-- <alert  title='你好' subtitle="恭喜您年会获奖" text="xr~" v-model="showSuccessAlert" ></alert> -->
+        <div @click='showLoading'>loading插件</div><br>
+        <div @click='showAlert'>alert插件</div><br>
+        <div @click='showToast'>toast插件</div><br>
+        <div @click='showConfirm'>confirm插件</div><br>
     </div>
 </template>
 <script>
-    import Vue form 'vue'
-    import {loadingPlugin,alertPligun} from '@gblw/vue-x-ui'
-    Vue.use(loadingPlugin)
-    Vue.use(alertPlugin)
-    Vue.use(alertPlugin,{
-        delayed:true,
-        timeout: 3000
-        }) //可配置持续时间
-    export default {
-        name: '',
 
-        data() {
-            return {
-                showSuccessAlert: true
-            }
-        },
-        mounted() {
+export default {
+    name: '',
+    components: {
+    },
+    data() {
+        return {
+            showSuccessAlert: true
+        }
+    },
+    mounted() {
 
+    },
+    methods: {
+        showLoading() {
+            this.$x.loading.show()
         },
-        methods: {
-            showLoading() {
-                //this.$x.loading.show()
-                this.$x.loading.show('loading') //默认显示‘正在加载中...’ 可配置
-            },
-            hideLoading() {
-                this.$x.loading.hide()
-            },
-            showAlert() {
-                //this.$x.alert('wm真帅')  //传字符串默认显示text
+        hideLoading() {
+            this.$x.loading.hide()
+        },
+        showToast() {
+            this.$x.toast('我是toast')
+        },
+        showConfirm() {
+           this.$x.confirm({
+              title:'提示',
+               body: '你喜欢我么？',
+               cancleText: '取消',
+               confirmText: '确定',
+               btnReverse: false, //按钮是否反正
+               useHTMLString: 'false' //是否使用动态HTML插入
+           }).then(res => {
+               console.log(res)     //根据res判断是取消还是确定
+               res ? this.$x.toast('确定') : this.$x.toast('取消')
+           })
+        },
+        showAlert() {
+            // this.$x.alert('wm真帅')
                 this.$x.alert({
                         title:'这是title',//标题
                         subtitle:'这是subtitle',//副标题
                         text:'这是text', //主题
-                        delayed: false // 默认3000ms后自动取消
-                    })
-            }
-        },
-        watch: {
-
-        },
-        computed: {
-
+                        delayed: false // 默认2000ms后自动取消
+                })
         }
+    },
+    watch: {
+
+    },
+    computed: {
+
     }
+}
 
 </script>
 
 ```
-<img src="https://raw.githubusercontent.com/501981732/vue-x-ui/master/screenshot/2.png" width='300' height='500' alt="">
+<img src="https://raw.githubusercontent.com/501981732/vue-x-ui/master/screenshot/a.gif" width='300' height='500' alt="">
 

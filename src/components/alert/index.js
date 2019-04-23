@@ -1,6 +1,9 @@
 import Vue from "vue";
 import AlertComponent from "./Alert.vue";
 
+const defaultProps = {
+    delayed: true
+}
 const plugin = {
     install(Vue, props = {}) {
         const AlertPlugin = Vue.extend(AlertComponent);
@@ -18,8 +21,8 @@ const plugin = {
                     text: arguments[0]
                 };
             }
-            //配置优选级： 默认配置 < 全部配置  < 实例配置
-            $vm = Object.assign($vm, props, options, { delayed: true });
+
+            $vm = Object.assign($vm, defaultProps, props, options)
 
             $vm.show = true;
             // 支持延时消失 默认支持

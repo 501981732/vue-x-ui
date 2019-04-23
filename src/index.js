@@ -2,7 +2,8 @@ import loading from './components/loading/Loading.vue'
 import alert from './components/alert/Alert.vue'
 import toast from './components/toast/Toast.vue'
 import confirm from './components/confirm/Confirm.vue'
-import staggeredGroup from './components/staggeredGroup/staggeredGroup.js'
+import staggeredGroup from './components/staggeredGroup/staggeredGroup.js'//列表动画
+import turnTable from './components/turnTable/TurnTable.vue'
 
 
 // 插件
@@ -20,7 +21,8 @@ const components = [
     alert,
     toast,
     confirm,
-    staggeredGroup
+    staggeredGroup,
+    turnTable
 ]
 
 const plugins = [
@@ -33,7 +35,6 @@ const plugins = [
 const install = function(Vue, opts={}) {
     components.forEach(component => Vue.component(component.name,component))
     plugins.forEach(plugin => Vue.use(plugin))
-
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -46,6 +47,7 @@ export {
     toast,
     confirm,
     staggeredGroup,
+    turnTable,
     AlertPlugin,
     LoadingPlugin,
     ToastPlugin,

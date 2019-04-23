@@ -2,6 +2,14 @@
 
 > A UI for vue you can use it for components or plugin
 
+```
+alert
+confirm
+loading
+toast
+staggeredGroup
+turnTable
+```
 ### install
 
 ```
@@ -75,6 +83,21 @@ export default {
 As Plugin
 
 ```
+main.js
+import {
+    LoadingPlugin,
+    AlertPlugin,
+    ToastPlugin,
+    ConfirmPlugin
+    } from '@gblw/vue-x-ui'
+
+Vue.use(LoadingPlugin)
+Vue.use(AlertPlugin)
+Vue.use(ToastPlugin)
+Vue.use(ConfirmPlugin)
+
+
+
 <template>
     <div id="demo">
         <div @click='showLoading'>loading插件</div><br>
@@ -141,5 +164,60 @@ export default {
 </script>
 
 ```
+
+### staggeredGroup useagge
+
+```
+<staggered-group>
+    <div v-for="(item, index) in computedList" :key="item.msg" :data-index="index" :height='20px'>{{ item.msg }}</div>
+</staggered-group>
+```
+
+### turnTable useage
+
+```js
+// arrowImg:中奖箭头图片
+// wheelImg: 转盘图片
+// config: 配置项
+// handleTurn: 手动触发转动
+// done： 转动结束后emit index
+    <turn-table
+        :arrowImg='arrowImg'
+        :wheelImg='wheelImg'
+        :config='turnTableConfig'
+        @handleTurn='handleBefore'
+        @done='turnDone'
+        ref='turnTable'
+    </turn-table>
+    ...
+
+    data() {
+        return {
+            turnTableConfig: {
+                total: 9, //一共奖品数量
+                maxTurn: 10, //转的圈数
+                duration: 3 //持续时间 s
+                //awardId: 1 //中奖第几个，应该异步返回
+            },
+            awardId: 0,
+        }
+    }，
+    method: {
+        <!-- 由于得奖通常都是RD给我们数据，所以这里需要异步请求之后 手动去调用转动 -->
+        async handleBefore() {
+                ({
+                    data: {
+                        awardId: this.awardId,
+                    }
+                } = await this.$api.lotteryDraw()),
+        this.$refs.turnTable.start(prizeInfo.get(awardId).index) // awardId对应的index
+        }
+        <!-- 当转盘转动结束后，会延迟300ms触发 -->
+        turnDone(index) {
+            console.log(index)
+        },
+    }
+```
+
 <img src="https://raw.githubusercontent.com/501981732/vue-x-ui/master/screenshot/a.gif" width='300' height='500' alt="">
 

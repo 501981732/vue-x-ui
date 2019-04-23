@@ -30,23 +30,14 @@ export default {
         // $vm.show = false;
         let loading = {
             show(text) {
+                if ($vm.show) return
                 $vm.value = true;
-
                 text && ($vm.text = text);
             },
             hide() {
                 $vm.value = false;
             }
         };
-        // const loading = {
-        //     show() {
-        //         if ($vm.show) return;
-        //         $vm.value = true;
-        //     },
-        //     hide() {
-        //         $vm.value = false;
-        //     }
-        // };
         if (!Vue.$x) {
             Vue.$x = {
                 loading
@@ -61,6 +52,9 @@ export default {
         Vue.mixin({
             created() {
                 this.$x = Vue.$x;
+            },
+            destoryed() {
+                this.$x.loading.hide(s)
             }
         });
     }

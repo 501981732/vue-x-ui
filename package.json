@@ -1,7 +1,7 @@
 {
   "name": "@gblw/vue-x-ui",
   "description": "a simple UI for vue.js ",
-  "version": "0.2.1",
+  "version": "0.2.5",
   "author": "wangmeng <501981732@qq.com>",
   "main": "lib/index.js",
   "license": "MIT",
@@ -15,6 +15,7 @@
     "loading",
     "confirm",
     "toast",
+    "turnTable",
     "UI"
   ],
   "scripts": {

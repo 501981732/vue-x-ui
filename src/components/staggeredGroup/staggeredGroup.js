@@ -1,5 +1,5 @@
-import '@an/velocity.min.js'
-import '@an/velocity.ui.min.js'
+import 'velocity-animate/velocity.min.js'
+// import 'velocity-animate/velocity.ui.min.js'
 import Vue from 'Vue'
 /**
  * usesage
@@ -9,6 +9,7 @@ import Vue from 'Vue'
  */
 export default {
     functional: true,
+    name:'staggered-group',
     render: function(createElement, context) {
         var data = {
             props: {
